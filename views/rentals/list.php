@@ -1,6 +1,6 @@
 <main class="container">
 	<section class="col-md-12 text-center">
-		<h1>Listado de alquileres</h1>
+		<h1>Listado de Alquileres</h1>
 
 		<div class="col-md-12 m-2 d-flex justify-content-between">
 			<h2>Alquileres</h2>

@@ -13,6 +13,7 @@
 					<tr>
 						<th>#</th>
                         <th>Nombres</th>
+                        <th>Tipo de estado</th>
                         <th>Acciones</th>
 					</tr>
 				</thead>
@@ -24,6 +25,9 @@
 							</td>
 							<td>
 								<?php echo $status->status ?>
+							</td>
+							<td>
+								<?php echo $status->type ?>
 							</td>
 							<td>
 								<a href="?controller=status&method=edit&id=<?php echo $status->id ?>" class="btn btn-warning disabled" role="button">Editar</a>

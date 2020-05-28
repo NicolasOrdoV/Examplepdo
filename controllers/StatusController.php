@@ -1,7 +1,7 @@
 <?php
 require 'models/Status.php';
 /**
- * 
+ * Estados
  */
 class StatusController
 {
