@@ -83,17 +83,18 @@ class Movie
     {
         try {
             $strSql = "SELECT MAX(id) as id FROM movies";
-            $query = $this->pdo->select($strSql, $array);
+            $query = $this->pdo->select($strSql);
             return $query;
         } catch (PDOException $e) {
             return $e->getMessage();
         }
     }
 
-    public function saveCategoryMovie($arrayCategories , $movieId)
+    public function saveCategoryMovie($arrayCategories, $movieId)
     {
         try {
             foreach ($arrayCategories as $category) {
+                //Organizar datos para insertarlos en la tabla category_movie
                 $data = [
                     'movie_id' => $movieId,
                     'category_id' => $category['id'],

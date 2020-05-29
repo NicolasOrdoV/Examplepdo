@@ -45,14 +45,15 @@ class MovieController
             'user_id' => $_POST['user_id'],
             'status_id' => 1
         ];
-        //dotos de las categorias de category_movie
+        //datos de las categorias de category_movie
         $arrayCategories = $_POST['categories'];
         //insertar movie
-        $respNewMovie = $this->model->newMovie($_REQUEST);
+        $respNewMovie = $this->model->newMovie($dataMovie);
         //Obtener el ultimo id registrado
         $lastId = $this->model->getLastId();
         $arrayResp = [];
         if (isset($lastId[0]->id) && $respNewMovie == true) {
+            //Insercion de la nueva categoria
             $respNewCategoryMovie = $this->model->saveCategoryMovie($arrayCategories, $lastId[0]->id);
             if ($respNewCategoryMovie == true) {
                 $arrayResp = [
@@ -68,7 +69,7 @@ class MovieController
         }else{
            $arrayResp = [
              'error' => true,
-             'message' => 'error ingresando la pelicula'
+             'message' => 'Error ingresando la pelicula'
            ];
         }
         echo json_encode($arrayResp);

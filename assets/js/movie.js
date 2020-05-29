@@ -4,15 +4,15 @@ var arrayCategories = [];
 $('#add').click(function(e){
 	//Desabilitar submit del formulario
 	e.preventDefault();
-	let idCategory = $("categories").val()
-	let nameCategory = $("categories option:selected").text()
+	let idCategory = $("#categories").val()
+	let nameCategory = $("#categories option:selected").text()
 	if (idCategory != '') {
 		if (typeof existCategory(idCategory) === 'undefined') {
 			//agregar nuevo objeto al array
-        arrayCategories.push({
-        	'id'   :idCategory,
-        	'name' :nameCategory
-        })
+	        arrayCategories.push({
+	        	'id'   :idCategory,
+	        	'name' :nameCategory
+	        })
         showCategories()
 		}else{
 			alert("La categoria ya se encuentra seleccionada")
@@ -56,8 +56,8 @@ $("#submit").click(function(e){
 		categories : arrayCategories
 	}
 	//metodo POST de ajax para el envio del formulario
-	$.post(url,params,function(response){
-       if (typeof respnse.error !== 'undefined') {
+	$.post(url, params, function(response){
+       if (typeof response.error !== 'undefined') {
        	alert(response.message)
        }else{
        	alert("Inserción satistactoria")
@@ -66,4 +66,4 @@ $("#submit").click(function(e){
 	},'json').fail(function(error){
 		alert("Error insertando la pelicula")
 	});
-})
+});

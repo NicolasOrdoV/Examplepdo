@@ -36,23 +36,24 @@
                     <div class="form-group row">
                         <div class="col-md-9">
                             <label>Categorias</label>
-                        <select id="categories" class="form-control">
-                            <option value="">Seleccione...</option>                                
-                            <?php
-                                foreach ($categories as $category) {
-                                    ?>
-                                        <option value="<?php echo $category->id ?>"><?php echo $category->name ?></option>
-                                    <?php                                       
-                                }
-                            ?>
-                        </select>
+                            <select name ="categories" id="categories" class="form-control">
+                                <option value="">Seleccione...</option>                                
+                                <?php
+                                    foreach ($categories as $category) {
+                                        ?>
+                                            <option value="<?php echo $category->id ?>"><?php echo $category->name ?></option>
+                                        <?php                                       
+                                    }
+                                ?>
+                            </select>
                         </div>
                         <div class="col-md-3">
-                            <button class="btn btn-primary" id="add">+</button>
+                            <button id="add" class="btn btn-success mt-4">+</button>
                         </div>
                     </div>
+                    <div id="list-categories"></div>
                     <div class="form-group">
-                        <button class="btn btn-primary" id="submit">Generar</button>
+                        <button id="submit" class="btn btn-primary">Guardar</button>
                     </div>
                 <!--</form>-->
             </div>
