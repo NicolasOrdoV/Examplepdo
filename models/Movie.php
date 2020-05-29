@@ -33,10 +33,10 @@ class Movie
     public function newMovie($data)
     {
         try {
-            $data['status_id'] = 1;
             $this->pdo->insert('movies', $data);
+            return true;
         } catch (PDOException $e) {
-            die($e->getMessage());
+            return $e->getMessage();
         }
     }
     public function editMovie($data)
@@ -77,5 +77,34 @@ class Movie
         }catch(PDOException $e){
             die($e->getMessage());
         }
+    }
+
+    public function getLastId()
+    {
+        try {
+            $strSql = "SELECT MAX(id) as id FROM movies";
+            $query = $this->pdo->select($strSql, $array);
+            return $query;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function saveCategoryMovie($arrayCategories , $movieId)
+    {
+        try {
+            foreach ($arrayCategories as $category) {
+                $data = [
+                    'movie_id' => $movieId,
+                    'category_id' => $category['id'],
+                    'status_id' => 1
+                ];
+                //insertar los datos en la tabla
+                $this->pdo->insert('category_movie', $data);
+            }
+            return true;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        } 
     }
 }

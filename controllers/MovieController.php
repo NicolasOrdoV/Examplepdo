@@ -2,6 +2,7 @@
 require 'models/Movie.php';
 require 'models/Status.php';
 require 'models/User.php';
+require 'models/Category.php';
 /**
  * 
  */
@@ -10,6 +11,7 @@ class MovieController
     private $model;
     private $users;
     private $status;
+    private $category;
 
     public function __construct()
     {
@@ -17,6 +19,7 @@ class MovieController
             $this->model=new Movie;
             $this->users=new User;
             $this->status=new Status;
+            $this->category=new Category;
         }catch(PDOException $e){
             die($e->getMessage());
         }
@@ -30,12 +33,46 @@ class MovieController
     {
         require 'views/layout.php';
         $users=$this->users->getAll();
+        $categories=$this->category->getAll();
         require 'views/movies/new.php';
     }
     public function save()
     {
-        $this->model->newMovie($_REQUEST);
-        header('Location: ?controller=movie');
+        //Organizar la informacion del request
+        $dataMovie = [
+            'name' => $_POST['name'],
+            'description' => $_POST['description'],
+            'user_id' => $_POST['user_id'],
+            'status_id' => 1
+        ];
+        //dotos de las categorias de category_movie
+        $arrayCategories = $_POST['categories'];
+        //insertar movie
+        $respNewMovie = $this->model->newMovie($_REQUEST);
+        //Obtener el ultimo id registrado
+        $lastId = $this->model->getLastId();
+        $arrayResp = [];
+        if (isset($lastId[0]->id) && $respNewMovie == true) {
+            $respNewCategoryMovie = $this->model->saveCategoryMovie($arrayCategories, $lastId[0]->id);
+            if ($respNewCategoryMovie == true) {
+                $arrayResp = [
+                 'success' => true,
+                 'message' => 'Pelicula creada'
+               ];
+            }else{
+               $arrayResp = [
+                 'error' => true,
+                 'message' => 'error ingresando la pelicula'
+               ]; 
+            }
+        }else{
+           $arrayResp = [
+             'error' => true,
+             'message' => 'error ingresando la pelicula'
+           ];
+        }
+        echo json_encode($arrayResp);
+        return;
     }
     public function edit()
     {

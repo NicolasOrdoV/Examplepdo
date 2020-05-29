@@ -37,6 +37,9 @@
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link text-light" href="?controller=role">Roles</a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link text-light" href="?controller=role">Tipos de estados</a>
 		      </li>  
 		    </ul>	    
 		  </div>

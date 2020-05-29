@@ -38,6 +38,7 @@
                                 <?php echo $movie->status ?>
                             </td>
 							<td>
+								<a href="?controller=movie&method=categories&id=<?php echo $movie->id ?>" class="btn btn-success">Categorias</a>
 								<a href="?controller=movie&method=edit&id=<?php echo $movie->id ?>" class="btn btn-warning">Editar</a>
 								<a href="?controller=movie&method=delete&id=<?php echo $movie->id ?>" class="btn btn-danger">Eliminar</a>
 

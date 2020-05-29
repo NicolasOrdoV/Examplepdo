@@ -4,7 +4,7 @@ class Database extends PDO
 {
 	private $driver = 'mysql';
 	private $host = 'localhost';
-	private $dbName = 'examplePDO';
+	private $dbName = 'examplepdo';
 	private $charset = 'utf8';
 	private $user = 'root';
 	private $password = '';
