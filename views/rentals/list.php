@@ -30,6 +30,7 @@
 					  <td><?php echo $rental->total ?></td>
 					  <td><?php echo $rental->user ?></td>
 				      <td>
+				      	<a href="?controller=rental&method=edit&id=<?php echo $rental->id ?>" class="btn btn-success">Peliculas</a>
 				      	<a href="?controller=rental&method=edit&id=<?php echo $rental->id ?>" class="btn btn-warning">Editar</a>	
 				      	<a href="?controller=rental&method=delete&id=<?php echo $rental->id ?>" class="btn btn-danger">Eliminar</a>
 

@@ -41,9 +41,43 @@ class RentalController
 	}
 	public function save()
 	{
-		$this->model->newRental($_REQUEST);
-		header('Location: ?controller=rental');
-		
+		//Organizar la informacion del request
+        $dataRental = [
+            'start_date' => $_POST['start_date'],
+            'end_date' => $_POST['end_date'],
+            'total' => $_POST['total'],
+            'user_id' => $_POST['user_id'],
+            'status_id' => 1
+        ];
+        //datos de las categorias de movie_rental
+        $arrayMovies = $_POST['movies'];
+        //insertar movie
+        $respNewRental = $this->model->newRental($dataRental);
+        //Obtener el ultimo id registrado
+        $lastId = $this->model->getLastId();
+        $arrayResp = [];
+        if (isset($lastId[0]->id) && $respNewRental == true) {
+            //Insercion de la nueva categoria
+            $respNewMovieRental = $this->model->saveMovieRental($arrayMovies, $lastId[0]->id);
+            if ($respNewMovieRental == true) {
+                $arrayResp = [
+                 'success' => true,
+                 'message' => 'Alquiler creado'
+               ];
+            }else{
+               $arrayResp = [
+                 'error' => true,
+                 'message' => 'error ingresando el alquiler'
+               ]; 
+            }
+        }else{
+           $arrayResp = [
+             'error' => true,
+             'message' => 'Error ingresando el alquiler'
+           ];
+        }
+        echo json_encode($arrayResp);
+        return;	
 	}
 	public function edit()
 	{

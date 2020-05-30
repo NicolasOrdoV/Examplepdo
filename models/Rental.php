@@ -37,10 +37,10 @@ class Rental
 	public function newRental($data)
 	{
 		try {
-			$data['status_id'] = 1;
 			$this->pdo->insert('rentals', $data);
+			return true;
 		} catch (PDOException $e) {
-			die($e->getMessage());
+			return $e->getMessage();
 		}
 	}
 	
@@ -95,4 +95,34 @@ class Rental
 			die($e->getMessage());
 		}
 	}
+
+	public function getLastId()
+    {
+        try {
+            $strSql = "SELECT MAX(id) as id FROM rentals";
+            $query = $this->pdo->select($strSql);
+            return $query;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function saveMovieRental($arrayMovies, $rentalId)
+    {
+        try {
+            foreach ($arrayMovies as $movie) {
+                //Organizar datos para insertarlos en la tabla category_movie
+                $data = [
+                    'movie_id' => $movie['id'],
+                    'rental_id' => $rentalId,
+                    'unit_price' => 13000
+                ];
+                //insertar los datos en la tabla
+                $this->pdo->insert('movie_rental', $data);
+            }
+            return true;
+        } catch (PDOException $e) {
+            return $e->getMessage();
+        } 
+    }
 }
