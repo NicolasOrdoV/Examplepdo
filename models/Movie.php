@@ -23,7 +23,8 @@ class Movie
     public function getAll()
     {
         try {
-            $strSql = 'SELECT m.*, u.name as user, s.status as status FROM movies m INNER JOIN users u INNER JOIN statuses s ON s.id=m.status_id AND u.id=m.user_id';
+            $strSql = 'SELECT m.*, u.name as user, s.status as status FROM movies m 
+            INNER JOIN users u INNER JOIN statuses s ON s.id=m.status_id AND u.id=m.user_id';
             $query = $this->pdo->select($strSql);
             return $query;
         } catch (PDOException $e) {

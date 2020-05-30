@@ -3,10 +3,11 @@
 require 'models/User.php';
 require 'models/Status.php';
 require 'models/Rental.php';
+require 'models/Movie.php';
 
 
 /**
- * Rentals
+ * Alquileres
  */
 class RentalController
 {
@@ -14,12 +15,14 @@ class RentalController
 	private $model;
 	private $status;
 	private $users;
+	private $movies;
 
 	public function __construct()
 	{
 		$this->model = new Rental;
 		$this->status = new Status;
 		$this->user = new User;
+		$this->movie = new Movie;
 	}
 
 	public function index()
@@ -33,6 +36,7 @@ class RentalController
 	{
 		require 'views/layout.php';
 		$users = $this->user->getAll();
+		$movies = $this->movie->getAll();
 		require 'views/rentals/new.php';
 	}
 	public function save()
