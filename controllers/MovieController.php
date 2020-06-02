@@ -26,7 +26,8 @@ class MovieController
     }
     public function index(){
         require 'views/layout.php';
-        $movies=$this->model->getAll();
+        $movies = $this->model->getAll();
+        $categories = $this->category->getAllC();
         require 'views/movies/list.php';
     }
     public function new()

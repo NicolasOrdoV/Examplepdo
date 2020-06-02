@@ -30,6 +30,17 @@ class Category
             die($e->getMessage());
         }
     }
+    public function getAllC()
+    {
+        try {
+            $strSql = "SELECT c.name as movie FROM categories c,category_movie cm, movies m
+                       WHERE cm.category_id = c.id AND cm.movie_id = m.id";
+            $query = $this->pdo->select($strSql);
+            return $query;
+        } catch (PDOException $e) {
+            die($e->getMessage());
+        }
+    }
     public function newCategory($data)
     {
         try {
