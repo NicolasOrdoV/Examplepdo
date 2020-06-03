@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-05-2020 a las 00:14:07
+-- Tiempo de generación: 03-06-2020 a las 18:40:13
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.4
 
@@ -27,6 +27,18 @@ CREATE TABLE `categories` (
   `status_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `status_id`) VALUES
+(5, 'Terror', 1),
+(6, 'Accion', 1),
+(7, 'comedia', 1),
+(8, 'Ciencia ficcion', 1),
+(9, 'animada', 1),
+(10, 'miedo', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -39,6 +51,16 @@ CREATE TABLE `category_movie` (
   `category_id` int(11) NOT NULL,
   `status_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `category_movie`
+--
+
+INSERT INTO `category_movie` (`id`, `movie_id`, `category_id`, `status_id`) VALUES
+(1, 26, 5, 1),
+(2, 26, 6, 1),
+(3, 27, 8, 1),
+(4, 28, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -54,6 +76,15 @@ CREATE TABLE `movies` (
   `status_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `movies`
+--
+
+INSERT INTO `movies` (`id`, `name`, `description`, `user_id`, `status_id`) VALUES
+(26, 'Saw', 'Película sangrienta apta para mayores de 15 años', 14, 1),
+(27, 'Interestelar', 'Un piloto de la nasa viaja con su equipo en busca de un nuevo hogar para los humanos', 14, 1),
+(28, 'Donde estan las rubias', 'dos policías se infiltran en un club vestidas de mujeres', 14, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -66,6 +97,15 @@ CREATE TABLE `movie_rental` (
   `rental_id` int(11) NOT NULL,
   `unit_price` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `movie_rental`
+--
+
+INSERT INTO `movie_rental` (`id`, `movie_id`, `rental_id`, `unit_price`) VALUES
+(1, 28, 6, 13000),
+(2, 26, 7, 13000),
+(3, 27, 7, 13000);
 
 -- --------------------------------------------------------
 
@@ -81,6 +121,14 @@ CREATE TABLE `rentals` (
   `total` int(11) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `rentals`
+--
+
+INSERT INTO `rentals` (`id`, `start_date`, `end_date`, `status_id`, `total`, `user_id`) VALUES
+(6, '2020-05-29', '2020-06-03', 1, 13000, 14),
+(7, '2020-05-31', '2020-06-02', 1, 12222, 14);
 
 -- --------------------------------------------------------
 
@@ -157,6 +205,13 @@ CREATE TABLE `users` (
   `status_id` int(11) NOT NULL,
   `rol_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `status_id`, `rol_id`) VALUES
+(14, 'Jeison', 'jeison@gmail.com', '123', 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -239,31 +294,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `category_movie`
 --
 ALTER TABLE `category_movie`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `movies`
 --
 ALTER TABLE `movies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `movie_rental`
 --
 ALTER TABLE `movie_rental`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `rentals`
 --
 ALTER TABLE `rentals`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -287,7 +342,7 @@ ALTER TABLE `type_status`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas
