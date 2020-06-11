@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-06-2020 a las 18:40:13
+-- Tiempo de generación: 11-06-2020 a las 20:56:42
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.4
 
@@ -14,6 +14,20 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `examplepdo`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addUsers` (IN `_name` VARCHAR(100), IN `_email` VARCHAR(100), IN `_password` VARCHAR(100), IN `_statusId` INT, IN `_rolId` INT)  BEGIN
+INSERT INTO users(name,email,password,status_id,rol_id) VALUES (_name,_email,_password,_statusId,_rolId);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `readUsers` (`_name` VARCHAR(100), `_email` VARCHAR(100), `_password` VARCHAR(100), `_statusId` INT, `_rolId` INT)  BEGIN
+SELECT u.*, s.status as status,r.name as role FROM users u INNER JOIN  statuses s ON s.id=u._statusiId INNER JOIN roles r ON r.id = u._rolId ORDER BY u.id ASC;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -211,7 +225,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `status_id`, `rol_id`) VALUES
-(14, 'Jeison', 'jeison@gmail.com', '123', 1, 1);
+(14, 'Jeison', 'jeison@gmail.com', '123', 1, 1),
+(15, 'nicky@gmail.com', 'nicky', '123', 1, 1),
+(16, 'santiago@gmail.com', 'santiago', '321', 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -342,7 +358,7 @@ ALTER TABLE `type_status`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- Restricciones para tablas volcadas

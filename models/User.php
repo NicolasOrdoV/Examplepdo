@@ -36,8 +36,8 @@ class User
 	public function newUser($data)
 	{
 		try {
-			$data['status_id'] = 1;
-			$this->pdo->insert('users', $data);
+			$data['_statusId'] = 1;
+			$this->pdo->insert('addUsers', $data);
 		} catch (PDOException $e) {
 			die($e->getMessage());
 		}
