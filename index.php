@@ -1,6 +1,6 @@
 <?php
-
-    session_start();
+	
+	session_start();
 	//LLamado a la Clase de Conexión
 	require 'providers/Database.php';
 

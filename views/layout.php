@@ -42,7 +42,7 @@
 		        <a class="nav-link text-danger" href="?controller=types">Tipos de estados</a>
 		      </li>
 		      <li class="nav-item">
-		        <a class="nav-link text-danger" href="?controller=login&method=logout">Cerrar sesion</a>
+		        <a class="nav-link text-primary font-weigth-bold" href="?controller=login&method=logout">Cerrar sesion</a>
 		      </li>   
 		    </ul>	    
 		  </div>

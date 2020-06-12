@@ -91,6 +91,21 @@ class RentalController
 			echo "Error, no se realizo";
 		}
 	}
+
+	public function view()
+	{
+		if (isset($_REQUEST['id'])) {
+			$id = $_REQUEST['id'];
+			$data = $this->model->getById($id);
+			$users=$this->user->getActiveStatus();
+			$movies=$this->movie->getAll();
+			require 'views/layout.php';
+			require 'views/rentals/view.php';
+		} else {
+			echo "Error, no se realizo";
+		}
+	}
+
 	public function update()
 	{
 		if (isset($_POST)) {
