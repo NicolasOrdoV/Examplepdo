@@ -13,11 +13,11 @@
                 <form action="?controller=user&method=save" method="POST">
                     <div class="form-group">
                         <label> Nombre</label>
-                        <input type="text" name="_name" class="form-control" placeholder="Ingrese su nombre">
+                        <input type="text" name="_email" class="form-control" placeholder="Ingrese su nombre">
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="text" name="_email" class="form-control" placeholder="Ingrese su email">
+                        <input type="email" name="_name" class="form-control" placeholder="Ingrese su email">
                     </div>
                     <div class="form-group">
                         <label>Contraseña</label>

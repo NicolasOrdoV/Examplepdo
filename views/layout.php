@@ -40,7 +40,10 @@
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link text-danger" href="?controller=types">Tipos de estados</a>
-		      </li>  
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link text-danger" href="?controller=login&method=logout">Cerrar sesion</a>
+		      </li>   
 		    </ul>	    
 		  </div>
 		</nav>

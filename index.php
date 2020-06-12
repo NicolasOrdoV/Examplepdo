@@ -1,10 +1,11 @@
 <?php
 
+    session_start();
 	//LLamado a la Clase de Conexión
 	require 'providers/Database.php';
 
 	//Inicializar variable de controlador por defecto
-	$controller = 'HomeController';
+	$controller = 'LoginController';
 
 	//Validación de acciones tomar
 	if(!isset($_REQUEST['controller'])) {

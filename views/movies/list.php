@@ -38,16 +38,6 @@
                                 <?php echo $movie->status ?>
                             </td>
 							<td>
-								<div class="dropdown">
-									<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									    Lista de categorias
-									</button>
-									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-										<?php foreach ($categories as $category):?>
-											<a class="dropdown-item" href="#"><?php echo $category->movie ?></a>
-										<?php endforeach?>
-									</div>
-								</div>
 								<a href="?controller=movie&method=edit&id=<?php echo $movie->id ?>" class="btn btn-warning">Editar</a>
 								<a href="?controller=movie&method=delete&id=<?php echo $movie->id ?>" class="btn btn-danger">Eliminar</a>
 
