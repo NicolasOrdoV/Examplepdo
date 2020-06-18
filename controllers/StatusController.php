@@ -13,14 +13,22 @@ class StatusController
     }
     public function index()
     {
-        require 'views/layout.php';
-        $statuses=$this->model->getAll();
-        require 'views/statutes/list.php';
+        if (isset($_SESSION['user'])) {
+             require 'views/layout.php';
+            $statuses=$this->model->getAll();
+            require 'views/statutes/list.php';
+        }else{
+            header('Location: ?controller=login');
+        }
     }
     public function new()
     {
-        require 'views/layout.php';
-        require 'views/statutes/new.php';
+        if (isset($_SESSION['user'])) {
+            require 'views/layout.php';
+            require 'views/statutes/new.php';
+        }else{
+            header('Location: ?controller=login');
+        } 
     }
     public function save()
     {
@@ -29,14 +37,18 @@ class StatusController
     }
     public function edit()
     {
-        if(isset($_REQUEST)){
+        if (isset($_SESSION['user'])) {
+            if(isset($_REQUEST)){
             $id=$_REQUEST['id'];
 
             $data=$this->model->getById($id);
             require 'views/layout.php';
             require 'views/statutes/edit.php';
+            }else{
+                echo "Error, no se realizo.";
+            }
         }else{
-            echo "Error, no se realizo.";
+           header('Location: ?controller=status'); 
         }
     }
     public function update()

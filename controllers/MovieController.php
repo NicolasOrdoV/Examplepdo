@@ -25,17 +25,25 @@ class MovieController
         }
     }
     public function index(){
-        require 'views/layout.php';
-        $movies = $this->model->getAll();
-        $categories = $this->category->getAllC();
-        require 'views/movies/list.php';
+        if (isset($_SESSION['user'])) {
+            require 'views/layout.php';
+            $movies = $this->model->getAll();
+            $categories = $this->category->getAllC();
+            require 'views/movies/list.php';
+        }else{
+            header('Location: ?controller=login');
+        }
     }
     public function new()
     {
-        require 'views/layout.php';
-        $users=$this->users->getAll();
-        $categories=$this->category->getAll();
-        require 'views/movies/new.php';
+        if (isset($_SESSION['user'])) {
+            require 'views/layout.php';
+            $users=$this->users->getAll();
+            $categories=$this->category->getAll();
+            require 'views/movies/new.php';
+        }else{
+            header('Location: ?controller=login');
+        }  
     }
     public function save()
     {
@@ -78,16 +86,20 @@ class MovieController
     }
     public function edit()
     {
-        if(isset($_REQUEST['id'])){
+        if (isset($_SESSION['user'])) {
+            if(isset($_REQUEST['id'])){
             $id=$_REQUEST['id'];
             $data=$this->model->getById($id);
             $users=$this->users->getActiveStatus();
             $statuses=$this->status->getAll();
             require 'views/layout.php';
             require 'views/movies/edit.php';
+            }else{
+                echo "Error, no se realizo.";
+            }
         }else{
-            echo "Error, no se realizo.";
-        }
+            header('Location: ?controller=login');
+        }  
     }
     public function update()
     {

@@ -3,6 +3,7 @@
 require 'models/User.php';
 require 'models/Status.php';
 require 'models/Role.php';
+require 'models/Login.php';
 
 /**
  * 
@@ -23,16 +24,24 @@ class UserController
 
 	public function index()
 	{
-		require 'views/layout.php';
-		$users = $this->model->getAll();
-		require 'views/users/list.php';
+		if (isset($_SESSION['user'])) {
+			require 'views/layout.php';
+			$users = $this->model->getAll();
+			require 'views/users/list.php';
+		}else{
+			header('Location: ?controller=login');
+		}
 	}
 
 	public function new()
 	{
-		require 'views/layout.php';
-		$roles = $this->role->getActiveRoles();
-		require 'views/users/new.php';
+		if (isset($_SESSION['user'])) {
+			require 'views/layout.php';
+			$roles = $this->role->getActiveRoles();
+			require 'views/users/new.php';
+		}else{
+			header('Location: ?controller=login');
+		}	
 	}
 	public function save()
 	{
@@ -42,15 +51,19 @@ class UserController
 	}
 	public function edit()
 	{
-		if (isset($_REQUEST['id'])) {
-			$id = $_REQUEST['id'];
-			$data = $this->model->getById($id);
-			$statuses = $this->status->getAll();
-			$roles = $this->role->getActiveRoles();
-			require 'views/layout.php';
-			require 'views/users/edit.php';
-		} else {
-			echo "Error, no se realizo";
+		if (isset($_SESSION['user'])) {
+			if (isset($_REQUEST['id'])) {
+				$id = $_REQUEST['id'];
+				$data = $this->model->getById($id);
+				$statuses = $this->status->getAll();
+				$roles = $this->role->getActiveRoles();
+				require 'views/layout.php';
+				require 'views/users/edit.php';
+			} else {
+				echo "Error, no se realizo";
+			}
+		}else{
+			header('Location: ?controller=login');
 		}
 	}
 	public function update()

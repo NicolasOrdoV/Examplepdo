@@ -1,5 +1,6 @@
 <?php
 require 'models/Types.php';
+require 'models/Login.php';
 /**
  * Tipos de Estados
  */
@@ -13,9 +14,13 @@ class TypesController
     }
     public function index()
     {
-        require 'views/layout.php';
-        $types=$this->model->getAll();
-        require 'views/types/list.php';
+        if (isset($_SESSION['user'])){
+            require 'views/layout.php';
+            $types=$this->model->getAll();
+            require 'views/types/list.php';
+        }else{
+            header('Location: ?controller=login');
+        }
     }
 
 }    

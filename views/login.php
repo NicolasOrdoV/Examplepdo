@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Sistema de Administración de Peliculas</title>
-
+    <link rel="icon" href="assets/img/movies.ico">
 	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 </head>
 
@@ -30,7 +30,6 @@
 						<?php
 							}
 						?>
-
 						<div class="form-group">
 							<label>Email</label>
 							<input type="email" name="email" class="form-control" placeholder="test@test.com" value="<?php echo isset($error['email']) ? $error['email'] : '' ?>">

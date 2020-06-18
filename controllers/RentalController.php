@@ -27,17 +27,25 @@ class RentalController
 
 	public function index()
 	{
-		require 'views/layout.php';
-		$rentals = $this->model->getAll();
-		require 'views/rentals/list.php';
+		if (isset($_SESSION['user'])) {
+			require 'views/layout.php';
+			$rentals = $this->model->getAll();
+			require 'views/rentals/list.php';
+		}else{
+			header('Location: ?controller=login');
+		}
 	}
 
 	public function new()
 	{
-		require 'views/layout.php';
-		$users = $this->user->getAll();
-		$movies = $this->movie->getAll();
-		require 'views/rentals/new.php';
+		if (isset($_SESSION['user'])) {
+			require 'views/layout.php';
+			$users = $this->user->getAll();
+			$movies = $this->movie->getAll();
+			require 'views/rentals/new.php';
+		}else{
+			header('Location: ?controller=login');
+		}
 	}
 	public function save()
 	{
@@ -81,28 +89,36 @@ class RentalController
 	}
 	public function edit()
 	{
-		if (isset($_REQUEST['id'])) {
+		if (isset($_SESSION['user'])) {
+			if (isset($_REQUEST['id'])) {
 			$id = $_REQUEST['id'];
 			$data = $this->model->getById($id);
 			$users=$this->user->getActiveStatus();
 			require 'views/layout.php';
 			require 'views/rentals/edit.php';
-		} else {
-			echo "Error, no se realizo";
+			} else {
+				echo "Error, no se realizo";
+			}
+		}else{
+			header('Location: ?controller=login');
 		}
 	}
 
 	public function view()
 	{
-		if (isset($_REQUEST['id'])) {
+		if (isset($_SESSION['user'])) {
+			if (isset($_REQUEST['id'])) {
 			$id = $_REQUEST['id'];
 			$data = $this->model->getById($id);
 			$users=$this->user->getActiveStatus();
 			$movies=$this->movie->getAll();
 			require 'views/layout.php';
 			require 'views/rentals/view.php';
-		} else {
-			echo "Error, no se realizo";
+			} else {
+				echo "Error, no se realizo";
+			}
+		}else{
+			header('Location: ?controller=login');
 		}
 	}
 

@@ -15,14 +15,22 @@ class CategoryController
     }
     public function index()
     {
-        require 'views/layout.php';
-        $categories = $this->model->getAll();
-        require 'views/categories/list.php';
+        if (isset($_SESSION['user'])) {
+            require 'views/layout.php';
+            $categories = $this->model->getAll();
+            require 'views/categories/list.php';
+        }else{
+            header('Location: ?controller=login');
+        }
     }
     public function new()
     {
-        require 'views/layout.php';
-        require 'views/categories/new.php';
+        if (isset($_SESSION['user'])) {
+            require 'views/layout.php';
+            require 'views/categories/new.php';
+        }else{
+            header('Location: ?controller=login');
+        }
     }
     public function save()
     {
@@ -31,15 +39,19 @@ class CategoryController
     }
     public function edit()
     {
-        if (isset($_REQUEST['id'])) {
+        if (isset($_SESSION['user'])) {
+            if (isset($_REQUEST['id'])) {
             $id = $_REQUEST['id'];
 
             $data = $this->model->getById($id);
             $statuses = $this->status->getAll();
             require 'views/layout.php';
             require 'views/categories/edit.php';
-        } else {
-            echo "Error, no se realizo.";
+            } else {
+                echo "Error, no se realizo.";
+            }
+        }else{
+            header('Location: ?controller=login');
         }
     }
     public function update()

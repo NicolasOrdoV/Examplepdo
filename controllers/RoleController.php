@@ -15,9 +15,13 @@ class RoleController{
 
     public function index()
     {
-        require 'views/layout.php';
-        $roles = $this->model->getAll();
-        require 'views/roles/list.php';
+        if (isset($_SESSION['user'])) {
+            require 'views/layout.php';
+            $roles = $this->model->getAll();
+            require 'views/roles/list.php';
+        }else{
+            header('Location: ?controller=login');
+        }    
     }
     
     public function updateStatus()

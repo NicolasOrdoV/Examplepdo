@@ -16,10 +16,11 @@
 
         public function index()
         {
-            if(isset($_SESSION['user']))
+            if(isset($_SESSION['user'])){
                 header('Location: ?controller=home');
-            else
+            }else{
                 require 'views/login.php';
+            }
         }
 
         public function login()
