@@ -20,6 +20,7 @@
 
 		  <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
 		    <ul class="navbar-nav">
+		    	<?php if($_SESSION['user']->role == 'Administrador'):?>
 	              <li class="nav-item">
 			        <a class="nav-link" href="?controller=user">Usuarios</a>
 			      </li>
@@ -44,6 +45,30 @@
 			      <li class="nav-item">
 			        <a class="nav-link text-primary font-weigth-bold" href="?controller=login&method=logout">Cerrar sesion</a>
 			      </li>
+			    <?php elseif($_SESSION['user']->role == 'Empleado') :?>
+			      <li class="nav-item">
+			        <a class="nav-link text-danger" href="?controller=movie">Peliculas</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link text-success" href="?controller=category">Categorías de producciones</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link text-warning" href="?controller=rental">Alquileres</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link text-primary font-weigth-bold" href="?controller=login&method=logout">Cerrar sesion</a>
+			      </li>
+			    <?php else:?>
+			      <li class="nav-item">
+			        <a class="nav-link text-danger" href="?controller=movie">Peliculas</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link text-warning" href="?controller=rental">Alquileres</a>
+			      </li>
+			      <li class="nav-item">
+			        <a class="nav-link text-primary font-weigth-bold" href="?controller=login&method=logout">Cerrar sesion</a>
+			      </li>
+			    <?php endif ?>  
 		    </ul>	    
 		  </div>
 		</nav>
