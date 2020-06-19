@@ -3,13 +3,19 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2020 a las 20:56:42
+-- Tiempo de generación: 19-06-2020 a las 03:06:34
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `examplepdo`
@@ -19,6 +25,18 @@ DELIMITER $$
 --
 -- Procedimientos
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addCategories` (`_name` VARCHAR(100), `_statusId` INT)  BEGIN
+INSERT into categories(name,status_id) VALUES (_name,_statusId);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addCategory_Movie` (IN `_movieId` INT, IN `_categoryId` INT, IN `_statusId` INT)  BEGIN
+INSERT into category_movie (movie_id,category_id,status_id) VALUES (_movieId,_categoryId,_statusId);
+END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `addMovies` (IN `_name` VARCHAR(100), IN `_description` VARCHAR(100), IN `_userId` INT, IN `_statusId` INT)  BEGIN
+INSERT INTO movies(name,description,user_id,status_id) VALUES (_name,_description,_userId,_statusId);
+END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `addUsers` (IN `_name` VARCHAR(100), IN `_email` VARCHAR(100), IN `_password` VARCHAR(100), IN `_statusId` INT, IN `_rolId` INT)  BEGIN
 INSERT INTO users(name,email,password,status_id,rol_id) VALUES (_name,_email,_password,_statusId,_rolId);
 END$$
@@ -226,8 +244,8 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `status_id`, `rol_id`) VALUES
 (14, 'Jeison', 'jeison@gmail.com', '123', 1, 1),
-(15, 'nicky@gmail.com', 'nicky', '123', 1, 1),
-(16, 'santiago@gmail.com', 'santiago', '321', 1, 1);
+(15, 'nicky', 'nicky@gmail.com', '123', 1, 3),
+(16, 'santiago', 'santiago@gmail.com', '321', 1, 2);
 
 --
 -- Índices para tablas volcadas
@@ -418,3 +436,7 @@ ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`status_id`) REFERENCES `statuses` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`) ON UPDATE CASCADE;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
