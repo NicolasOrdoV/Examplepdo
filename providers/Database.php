@@ -33,22 +33,27 @@ class Database extends PDO
 			return $query->fetchAll($fetchMode);
 	}
 
-	public function insert($procedure, $data)
+	public function insert($table, $data)
 	{
 		try {
+			//Ordena un array por su indice
 			ksort($data);
+			//Eliminar indices de un array
 			unset($data['controller'], $data['method']);
+
+			$fieldNames = implode('`, `', array_keys($data));
 			$fieldValues = ':' . implode(', :', array_keys($data));
-			$strSql = $this->prepare("CALL $procedure ($fieldValues)");
+			$strSql = $this->prepare("INSERT INTO $table (`$fieldNames`) VALUES ($fieldValues)");
 
 			foreach ($data as $key => $value) {
 				$strSql->bindValue(":$key", $value);
 			}
 
 			$strSql->execute();
-		} catch (PDOException $e) {
+
+		} catch(PDOException $e) {
 			die($e->getMessage());
-		}
+		}		
 	}
 
 	public function update($table, $data, $where)

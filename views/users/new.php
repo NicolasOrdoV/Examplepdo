@@ -13,19 +13,19 @@
                 <form action="?controller=user&method=save" method="POST">
                     <div class="form-group">
                         <label> Nombre</label>
-                        <input type="text" name="_email" class="form-control" placeholder="Ingrese su nombre">
+                        <input type="text" name="name" class="form-control" placeholder="Ingrese su nombre">
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" name="_name" class="form-control" placeholder="Ingrese su email">
+                        <input type="email" name="email" class="form-control" placeholder="Ingrese su email">
                     </div>
                     <div class="form-group">
                         <label>Contraseña</label>
-                        <input type="password" name="_password" class="form-control" placeholder="Ingrese su contraseña">
+                        <input type="password" name="password" class="form-control" placeholder="Ingrese su contraseña">
                     </div>
                     <div class="form-group">
                         <label>Role</label>
-                        <select name="_rolId" class="form-control">
+                        <select name="rol_id" class="form-control">
                             <option value="">Seleccione...</option>                                
                             <?php
                                 foreach ($roles as $role) {
