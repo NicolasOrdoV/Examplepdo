@@ -3,15 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
-<<<<<<< HEAD
 -- Tiempo de generación: 09-07-2020 a las 04:39:29
 -- Versión del servidor: 10.1.38-MariaDB
 -- Versión de PHP: 7.3.2
-=======
--- Tiempo de generación: 19-06-2020 a las 03:06:34
--- Versión del servidor: 10.4.11-MariaDB
--- Versión de PHP: 7.4.4
->>>>>>> 10ea663c91572e5b6633ca86ffc9642b6a22b0d5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -251,14 +245,11 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `status_id`, `rol_id`) VALUES
 (14, 'Jeison', 'jeison@gmail.com', '123', 1, 1),
-<<<<<<< HEAD
 (18, 'nohora', 'nohora@gmail.com', '123', 1, 2),
 (19, 'santiago', 'santiago@gmail.com', '123', 1, 3),
 (20, 'miguel', 'miguel@gmail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 1, 1);
-=======
 (15, 'nicky', 'nicky@gmail.com', '123', 1, 3),
 (16, 'santiago', 'santiago@gmail.com', '321', 1, 2);
->>>>>>> 10ea663c91572e5b6633ca86ffc9642b6a22b0d5
 
 --
 -- Índices para tablas volcadas
