@@ -25,5 +25,6 @@
 		$controller = new $controller;
 
 		//realizar llamado a metodos
+		
 		call_user_func(array($controller, $method));
 	}
