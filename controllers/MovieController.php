@@ -101,6 +101,25 @@ class MovieController
             header('Location: ?controller=login');
         }  
     }
+
+    public function view()
+    {
+        if (isset($_SESSION['user'])) {
+            if (isset($_REQUEST['id'])) {
+            $id = $_REQUEST['id'];
+            $data = $this->model->getById($id);
+            $users=$this->users->getAll();
+            $categories=$this->category->getAll();
+            require 'views/layout.php';
+            require 'views/movies/view.php';
+            } else {
+                echo "Error, no se realizo";
+            }
+        }else{
+            header('Location: ?controller=login');
+        }
+    }
+
     public function update()
     {
         if(isset($_POST)){
