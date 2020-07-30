@@ -12,7 +12,7 @@ class Database extends PDO
 	public function __construct()
 	{
 		try {
-			parent::__construct("{$this->driver}:host={$this->host}; dbname={$this->dbName}; charset={$this->charset}", $this->user, $this->password);
+			parent::__construct("{$this->driver}:host={$this->host};dbname={$this->dbName}; charset={$this->charset}", $this->user, $this->password);
 
 			$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		} catch (PDOException $e) {
@@ -80,7 +80,7 @@ class Database extends PDO
 	public function delete($table, $where, $limit = 1)
 	{
 		try {
-			return $this->exec("DELETE FROM $table WHERE $where LIMIT $limit");
+			return $this->prepare("DELETE FROM $table WHERE $where LIMIT $limit");
 		} catch (PDOException $e) {
 			die($e->getMessage());
 		}

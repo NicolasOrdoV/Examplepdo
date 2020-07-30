@@ -10,10 +10,12 @@
             </div>
 
             <div class="card-body w-100">
-                <form action="?controller=status&method=save" method="POST">
+                <form action="?controller=status&method=save" method="POST" class="needs-validation" novalidate>
                     <div class="form-group">
                         <label> Nombre</label>
-                        <input type="text" name="status" class="form-control" placeholder="Ingrese el nombre">
+                        <input type="text" name="status" class="form-control" placeholder="Ingrese el nombre" required>
+                        <div class="invalid-feedback">Por favor no dejar campos vacios.</div>
+                        <div class="valid-feedback">Campo validado correctamente.</div>
                     </div>
                     <div class="form-group">
                         <button class="btn btn-primary">Generar</button>

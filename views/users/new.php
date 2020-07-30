@@ -10,22 +10,28 @@
             </div>
 
             <div class="card-body w-100">
-                <form action="?controller=user&method=save" method="POST">
+                <form action="?controller=user&method=save" method="POST" class="needs-validation" novalidate>
                     <div class="form-group">
                         <label> Nombre</label>
-                        <input type="text" name="name" class="form-control" placeholder="Ingrese su nombre">
+                        <input type="text" name="name" class="form-control" placeholder="Ingrese su nombre" required>
+                        <div class="invalid-feedback">Por favor no dejar campos vacios.</div>
+                        <div class="valid-feedback">Campo validado correctamente.</div>
                     </div>
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="Ingrese su email">
+                        <input type="email" name="email" class="form-control" placeholder="Ingrese su email" required>
+                        <div class="invalid-feedback">Por favor no dejar campos vacios.</div>
+                        <div class="valid-feedback">Campo validado correctamente.</div>
                     </div>
                     <div class="form-group">
                         <label>Contraseña</label>
-                        <input type="password" name="password" class="form-control" placeholder="Ingrese su contraseña">
+                        <input type="password" name="password" class="form-control" placeholder="Ingrese su contraseña" required>
+                        <div class="invalid-feedback">Por favor no dejar campos vacios.</div>
+                        <div class="valid-feedback">Campo validado correctamente.</div>
                     </div>
                     <div class="form-group">
                         <label>Role</label>
-                        <select name="rol_id" class="form-control">
+                        <select name="rol_id" class="form-control" required>
                             <option value="">Seleccione...</option>                                
                             <?php
                                 foreach ($roles as $role) {
@@ -35,9 +41,11 @@
                                 }
                             ?>
                         </select>
+                        <div class="invalid-feedback">Por favor no dejar campos vacios.</div>
+                        <div class="valid-feedback">Campo validado correctamente.</div>
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-primary">Generar</button>
+                        <button class="btn btn-primary" type="submit">Generar</button>
                     </div>
                 </form>
             </div>

@@ -9,22 +9,25 @@
 			</div>
 
 			<div class="card-body w-100">
-				<form action="?controller=user&method=update" method="post">
+				<form action="?controller=user&method=update" method="post" class="needs-validation" novalidate>
 
 					<input type="hidden" name="id" value="<?php echo $data[0]->id ?>">
 
 					<div class="form-group">
 						<label>Nombre</label>
-						<input type="text" name="name" class="form-control" placeholder="Ingrese su nombre completo" value="<?php echo $data[0]->name?>">
+						<input type="text" name="name" class="form-control" placeholder="Ingrese su nombre completo" value="<?php echo $data[0]->name?>" required>
+						<div class="invalid-feedback">Por favor no dejar campos vacios.</div>
+                    <div class="valid-feedback">Campo validado correctamente.</div>
 					</div>
-
 					<div class="form-group">
 						<label>Email</label>
-						<input type="email" name="email" class="form-control" placeholder="Ingrese su email" value="<?php echo $data[0]->email ?>">
+						<input type="email" name="email" class="form-control" placeholder="Ingrese su email" value="<?php echo $data[0]->email ?>" required>
+						<div class="invalid-feedback">Por favor no dejar campos vacios.</div>
+                    <div class="valid-feedback">Campo validado correctamente.</div>
 					</div>
 					<div class="form-group">
                         <label>Role</label>
-                        <select name="role_id" class="form-control">
+                        <select name="role_id" class="form-control" required>
                         	<option value="">Seleccione...</option>
                             <?php
                                 foreach ($roles as $role) {
@@ -40,10 +43,12 @@
                                 }
                             ?>
                         </select>
+                        <div class="invalid-feedback">Por favor no dejar campos vacios.</div>
+                        <div class="valid-feedback">Campo validado correctamente.</div>
                     </div>
 
 					<div class="form-group">
-						<button class="btn btn-primary">Actualizar</button>
+						<button class="btn btn-primary" type="submit">Actualizar</button>
 					</div>
 				</form>
 			</div>
