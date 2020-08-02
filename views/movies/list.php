@@ -13,6 +13,7 @@
 					<tr>
 						<th>#</th>
 						<th>Nombres</th>
+						<th>Portada</th>
 						<th>Descripcion</th>
                         <th>Usuario</th>
                         <th>Estado</th>
@@ -27,6 +28,9 @@
 							</td>
 							<td>
 								<?php echo $movie->name ?>
+							</td>
+							<td>
+							<img src="assets/img/<?php echo $movie->img ?>" class="img-fluid rounded border border-ligth b" width="150">
 							</td>
 							<td>
 								<?php echo $movie->description ?>

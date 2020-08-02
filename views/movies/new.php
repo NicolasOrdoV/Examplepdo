@@ -10,7 +10,11 @@
             </div>
 
             <div class="card-body w-100">
-                <!--<form action="?controller=movie&method=save" method="POST">-->
+                <form action="?controller=movie&method=save" method="POST" enctype="multypart/form-data">
+                    <div class="form-group" >
+                        <label>Portada</label>
+                        <input type="file" name="img" id="img" class="input-group-text">
+                    </div>
                     <div class="form-group">
                         <label> Nombre</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Ingrese el nombre">
@@ -53,9 +57,9 @@
                     </div>
                     <div id="list-categories"></div>
                     <div class="form-group">
-                        <button id="submit" class="btn btn-primary">Guardar</button>
+                        <button type="submit" id="submit" class="btn btn-primary">Guardar</button>
                     </div>
-                <!--</form>-->
+                </form>
             </div>
         </div>
     </section>

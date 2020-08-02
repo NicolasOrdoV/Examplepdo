@@ -7,6 +7,7 @@ class Movie
 {
     private $id;
     private $name;
+    private $img;
     private $description;
     private $user_id;
     private $status_id;

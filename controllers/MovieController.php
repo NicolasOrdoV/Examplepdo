@@ -50,6 +50,7 @@ class MovieController
         //Organizar la informacion del request
         $dataMovie = [
             'name' => $_POST['name'],
+            'img'=>$_POST['img'],
             'description' => $_POST['description'],
             'user_id' => $_POST['user_id'],
             'status_id' => 1
