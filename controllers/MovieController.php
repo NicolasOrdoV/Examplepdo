@@ -79,7 +79,7 @@ class MovieController
         }else{
            $arrayResp = [
              'error' => true,
-             'message' => 'Error ingresando la pelicula'
+             'message' => 'Error ingresando la pelicula'.$dataMovie
            ];
         }
         echo json_encode($arrayResp);

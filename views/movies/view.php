@@ -17,7 +17,13 @@
                         <input type="text" name="name" class="form-control" placeholder="Ingrese el nombre" value="<?php echo $data[0]->name ?>" readonly>
                     </div>
                     <div class="form-group">
+                        <label >Portada</label>
+                        <br>
+                        <img src="assets/img/<?php echo $data[0]->img ?>" class="img-fluid rounded border border-ligth b" width="150">	
+                    </div>
+                    <div class="form-group">
                         <label> Descripción</label>
+                        
                         <input type="text" class="form-control" rows="3" name="description" placeholder="Ingrese la descripción" value="<?php echo $data[0]->description ?>" readonly>
                     </div>
                     <div class="form-group">

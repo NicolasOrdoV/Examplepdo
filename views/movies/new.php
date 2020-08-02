@@ -10,11 +10,55 @@
             </div>
 
             <div class="card-body w-100">
-                <form action="?controller=movie&method=save" method="POST" enctype="multypart/form-data">
-                    <div class="form-group" >
-                        <label>Portada</label>
-                        <input type="file" name="img" id="img" class="input-group-text">
+            <form method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <div id="txt" class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fas fa-images"></i></div>
+                            </div>
+                            <input type="file" name="img" class="form-control" required><button class="btn btn-info">+</button>
+                        </div>
+
+
                     </div>
+                </form>
+                <?php
+                if (isset($_FILES['img'])) {
+                    $name_img = $_FILES['img']['name'];
+                    $type_img = $_FILES['img']['type'];
+                    $size_img = $_FILES['img']['size'];
+
+                    $carpeta_destina = $_SERVER['DOCUMENT_ROOT'] . "/Examplepdo/assets/img/";
+                    if ($size_img <= 1000000) {
+                        if ($type_img == "image/png" || $type_img == "image/jpeg" || $type_img == "image/jpg") {
+
+                            move_uploaded_file($_FILES['img']['tmp_name'], $carpeta_destina . $name_img);
+
+                ?>
+                            <img src="/Examplepdo/assets/img/<?php echo $name_img ?>" class="col-lg-4">
+
+                        <?php
+                        } else {
+                        ?>
+                            <script>
+                                alert("Solo se permiten archivos tipo png , jpg y jpeg");
+                            </script>
+
+                        <?php
+                        }
+                    } else {
+                        ?>
+                        <script>
+                            alert("El archivo no puede ser mayor a 1 mega");
+                        </script>
+
+                <?php
+                    }
+                }
+                ?>
+                <form action="?controller=movie&method=save" method="POST">
+                    
+                <input type="hidden" name="img" value="<?php echo $name_img ?>">
                     <div class="form-group">
                         <label> Nombre</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Ingrese el nombre">
