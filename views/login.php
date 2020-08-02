@@ -11,13 +11,13 @@
 
 <body>
 
-	<main class="container">
-		<div class="row">
-			<h1 class="col-12 d-flex justify-content-center">Iniciar Sesión</h1>
-		</div>
-		<section class="row mt-5">
-			<div class="card w-50 m-auto">
-				<div class="card-body w-100">
+<main class="container">
+        <section class="row mt-5">
+            <div class="card w-70 ml-auto mr-auto mt-5 border-success">
+                <div class="card-body table-dark w-100">
+					<div class="row">
+						<h1 class="col-12 d-flex justify-content-center pb-4">Iniciar Sesión</h1>
+					</div>
 					<form action="?controller=login&method=login" method="post">
 
 						<?php
@@ -36,10 +36,10 @@
 						</div>
 						<div class="form-group">
 							<label>Contraseña</label>
-							<input type="password" name="password" class="form-control" placeholder="******">
+							<input type="password" name="password" class="form-control" placeholder="Ingrese su contraseña">
 						</div>
 						<div class="form-group">
-							<button class="btn btn-primary">Iniciar</button>
+							<button class="btn btn-success m-auto">Ingresar</button>
 						</div>
 					</form>
 				</div>

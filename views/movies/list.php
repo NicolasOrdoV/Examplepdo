@@ -8,8 +8,8 @@
 		</div>
 
 		<section class="col-md-12 flex-nowrap table-responsive">
-			<table class="table table-striped table-hover">
-				<thead>
+			<table class="table table-success table-borderless table-hover">
+				<thead class="thead-dark">
 					<tr>
 						<th>#</th>
 						<th>Nombres</th>
@@ -44,19 +44,19 @@
 							<td>
 								<a href="?controller=movie&method=view&id=<?php echo $movie->id ?>" class="btn btn-success">Categorias</a>
 								<a href="?controller=movie&method=edit&id=<?php echo $movie->id ?>" class="btn btn-warning">Editar</a>
-								<a href="?controller=movie&method=delete&id=<?php echo $movie->id ?>" class="btn btn-danger">Eliminar</a>
+								<a href="?controller=movie&method=delete&id=<?php echo $movie->id ?>" class="btn btn-secondary">Eliminar</a>
 
 							<?php
-				      		if($movie->status_id == 1) { 
+				      		if($movie->status_id == 1) {
 					      	?>
 				      			<a href="?controller=movie&method=updateStatus&id=<?php echo $movie->id ?>" class="btn btn-danger">Inactivar</a>
 				      		<?php
-				      			} elseif($movie->status_id == 2) { 
+				      			} elseif($movie->status_id == 2) {
 				      		?>
 				      			<a href="?controller=movie&method=updateStatus&id=<?php echo $movie->id ?>" class="btn btn-primary">Activar</a>
 				      		<?php
-				      			} 
-				      		?>	
+				      			}
+				      		?>
 							</td>
 						</tr>
 					<?php endforeach ?>
