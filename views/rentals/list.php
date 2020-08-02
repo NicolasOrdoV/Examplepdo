@@ -1,15 +1,15 @@
 <main class="container">
 	<section class="col-md-12 text-center">
-		<h1>Listado de Alquileres</h1>
+		<h1>Listado de Rentas</h1>
 
 		<div class="col-md-12 m-2 d-flex justify-content-between">
-			<h2>Alquileres</h2>
+			<h2>Rentas</h2>
 			<a href="?controller=rental&method=new" class="btn btn-success">+Agregar</a>
 		</div>
 
-		<section class="col-md-12">
-			<table class="table table-striped table-hover">
-			  <thead>
+		<section class="col-md-12 flex-nowrap table-responsive">
+			<table class="table table-success table-borderless table-hover">
+				<thead class="thead-dark">
 			    <tr>
 			      <th>#</th>
 			      <th>Fecha de renta inicial</th>
@@ -31,23 +31,23 @@
 					  <td><?php echo $rental->user ?></td>
 				      <td>
 				      	<a href="?controller=rental&method=view&id=<?php echo $rental->id ?>" class="btn btn-success">Peliculas</a>
-				      	<a href="?controller=rental&method=edit&id=<?php echo $rental->id ?>" class="btn btn-warning">Editar</a>	
-				      	<a href="?controller=rental&method=delete&id=<?php echo $rental->id ?>" class="btn btn-danger">Eliminar</a>
+				      	<a href="?controller=rental&method=edit&id=<?php echo $rental->id ?>" class="btn btn-warning">Editar</a>
+				      	<a href="?controller=rental&method=delete&id=<?php echo $rental->id ?>" class="btn btn-secondary">Eliminar</a>
 
 				      	<?php
-				      		if($rental->status_id == 1) { 
+				      		if($rental->status_id == 1) {
 				      	?>
 			      			<a href="?controller=rental&method=updateStatus&id=<?php echo $rental->id ?>" class="btn btn-danger">Inactivar</a>
 			      		<?php
-			      			} elseif($rental->status_id == 2) { 
+			      			} elseif($rental->status_id == 2) {
 			      		?>
 			      			<a href="?controller=rental&method=updateStatus&id=<?php echo $rental->id ?>" class="btn btn-primary">Activar</a>
 			      		<?php
-			      			} 
-			      		?>	
-				      </td>				      
+			      			}
+			      		?>
+				      </td>
 				    </tr>
-				  <?php endforeach ?>		    
+				  <?php endforeach ?>
 			  </tbody>
 			</table>
 		</section>

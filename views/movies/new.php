@@ -1,11 +1,11 @@
 <main class="container">
     <div class="row">
-        <h1 class="col-12 d-flex jutify-content-center">Nueva Pelicula</h1>
+        <h1 class="col-12 d-flex justify-content-center mt-3">Nueva Pelicula</h1>
     </div>
 
-    <section class="row mt-5">
+    <section class="row mt-3">
         <div class="card w-50 m-auto">
-            <div class="card-header container">
+            <div class="card-header bg-primary container">
                 <h2 class="m-auto">Informacion Pelicula</h2>
             </div>
 
@@ -23,16 +23,16 @@
                         <div class="invalid-feedback">Por favor no dejar campos vacios.</div>
                         <div class="valid-feedback">Campo validado correctamente.</div>
                     </div>
-                    
+
                     <div class="form-group">
 						<label>Usuario</label>
 						<select name="user_id" id="user_id" class="form-control" required>
-                            <option value="">Seleccione...</option>                                
+                            <option value="">Seleccione...</option>
                             <?php
                                 foreach ($users as $user) {
                                     ?>
                                         <option value="<?php echo $user->id ?>"><?php echo $user->name ?></option>
-                                    <?php                                       
+                                    <?php
                                 }
                             ?>
                         </select>
@@ -43,12 +43,12 @@
                         <div class="col-md-9">
                             <label>Categorias</label>
                             <select name ="categories" id="categories" class="form-control" required>
-                                <option value="">Seleccione...</option>                                
+                                <option value="">Seleccione...</option>
                                 <?php
                                     foreach ($categories as $category) {
                                         ?>
                                             <option value="<?php echo $category->id ?>"><?php echo $category->name ?></option>
-                                        <?php                                       
+                                        <?php
                                     }
                                 ?>
                             </select>

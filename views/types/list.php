@@ -8,8 +8,8 @@
 		</div>
 
 		<section class="col-md-12 flex-nowrap table-responsive">
-			<table class="table table-striped table-hover">
-				<thead>
+			<table class="table table-success table-borderless table-hover">
+				<thead class="thead-dark">
 					<tr>
 						<th>#</th>
                         <th>Nombres</th>
@@ -27,7 +27,7 @@
 							</td>
 							<td>
 								<a href="?controller=status&method=edit&id=<?php echo $status->id ?>" class="btn btn-warning disabled" role="button">Editar</a>
-								<a href="?controller=status&method=delete&id=<?php echo $status->id ?>" class="btn btn-danger">Eliminar</a>
+								<a href="?controller=status&method=delete&id=<?php echo $status->id ?>" class="btn btn-secondary">Eliminar</a>
 							</td>
 						</tr>
 					<?php endforeach ?>

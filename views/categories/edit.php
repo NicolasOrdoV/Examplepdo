@@ -1,10 +1,10 @@
 <main class="container">
 	<div class="row">
-		<h1 class="col-12 d-flex justify-content-center">Editar Categoria</h1>
+		<h1 class="col-12 d-flex justify-content-center mt-3">Editar Categoria</h1>
 	</div>
-	<section class="row mt-5">
-		<div class="card w-75 m-auto">
-			<div class="card-header">
+	<section class="row mt-3">
+		<div class="card w-70 m-auto">
+			<div class="card-header bg-primary">
 				<h2 class="m-auto">Información de la Categoria</h2>
 			</div>
 

@@ -1,15 +1,15 @@
 <main class="container">
     <div class="row">
-        <h1 class="col-12 d-flex jutify-content-center">Nuevo alquiler</h1>
+        <h1 class="col-12 d-flex justify-content-center">Nueva Renta</h1>
     </div>
 
     <section class="row mt-5">
         <div class="card w-50 m-auto">
-            <div class="card-header container">
-                <h2 class="m-auto">Información de alquileres</h2>
+            <div class="card-header container bg-primary">
+                <h2 class="m-auto">Informacion Renta</h2>
             </div>
 
-            <div class="card-body w-100">
+            <div class="card-body w-200">
                 <form action="#" method="POST" class="needs-validation" novalidate>
                     <div class="form-group">
                         <label> Fecha de renta(fecha de hoy)</label>
@@ -32,12 +32,12 @@
                     <div class="form-group">
                         <label>Usuario</label>
                         <select name="user_id" id="user_id" class="form-control" required>
-                            <option value="">Seleccione...</option>                                
+                            <option value="">Seleccione...</option>
                             <?php
                                 foreach ($users as $user) {
                                     ?>
                                         <option value="<?php echo $user->id ?>"><?php echo $user->name ?></option>
-                                    <?php                                       
+                                    <?php
                                 }
                             ?>
                         </select>
@@ -48,12 +48,12 @@
                         <div class="col-md-9">
                             <label>Peliculas</label>
                             <select name="movies" id="movies" class="form-control" required>
-                                <option value="">Seleccione...</option>                                
+                                <option value="">Seleccione...</option>
                                 <?php
                                     foreach ($movies as $movie) {
                                         ?>
                                             <option value="<?php echo $movie->id ?>"><?php echo $movie->name ?></option>
-                                        <?php                                       
+                                        <?php
                                     }
                                 ?>
                             </select>

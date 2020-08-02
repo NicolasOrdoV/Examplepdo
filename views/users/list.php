@@ -4,12 +4,12 @@
 
 		<div class="col-md-12 m-2 d-flex justify-content-between">
 			<h2>Usuarios</h2>
-			<a href="?controller=user&method=new" class="btn btn-success">+Agregar</a>
+			<a href="?controller=user&method=new" class="btn btn-success">Agregar</a>
 		</div>
 
 		<section class="col-md-12">
-			<table class="table table-striped table-hover">
-			  <thead>
+			<table class="table table-success table-borderless table-hover">
+			  <thead class="thead-dark">
 			    <tr>
 			      <th>#</th>
 			      <th>Nombre</th>
@@ -28,23 +28,23 @@
 				      <td><?php echo $user->status ?></td>
 					  <td><?php echo $user->role ?></td>
 				      <td>
-				      	<a href="?controller=user&method=edit&id=<?php echo $user->id ?>" class="btn btn-warning">Editar</a>	
-				      	<a href="?controller=user&method=delete&id=<?php echo $user->id ?>" class="btn btn-danger">Eliminar</a>
+				      	<a href="?controller=user&method=edit&id=<?php echo $user->id ?>" class="btn btn-warning">Editar</a>
+				      	<a href="?controller=user&method=delete&id=<?php echo $user->id ?>" class="btn btn-secondary">Eliminar</a>
 
 				      	<?php
-				      		if($user->status_id == 1) { 
+				      		if($user->status_id == 1) {
 				      	?>
 			      			<a href="?controller=user&method=updateStatus&id=<?php echo $user->id ?>" class="btn btn-danger">Inactivar</a>
 			      		<?php
-			      			} elseif($user->status_id == 2) { 
+			      			} elseif($user->status_id == 2) {
 			      		?>
 			      			<a href="?controller=user&method=updateStatus&id=<?php echo $user->id ?>" class="btn btn-primary">Activar</a>
 			      		<?php
-			      			} 
-			      		?>	
-				      </td>				      
+			      			}
+			      		?>
+				      </td>
 				    </tr>
-				  <?php endforeach ?>		    
+				  <?php endforeach ?>
 			  </tbody>
 			</table>
 		</section>

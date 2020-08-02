@@ -1,15 +1,14 @@
 <main class="container">
-    <div class="row">
-        <h1 class="col-12 d-flex jutify-content-center">Actualizar alquiler</h1>
-    </div>
+	<div class="row">
+		<h1 class="col-12 d-flex justify-content-center mt-3">Editar Renta</h1>
+	</div>
+	<section class="row mt-3">
+		<div class="card w-50 m-auto">
+			<div class="card-header bg-primary">
+				<h2 class="m-auto">Información de la Renta</h2>
+			</div>
 
-    <section class="row mt-5">
-        <div class="card w-50 m-auto">
-            <div class="card-header container">
-                <h2 class="m-auto">Información de alquileres</h2>
-            </div>
-
-            <div class="card-body w-100">
+			<div class="card-body w-100">
                 <form action="?controller=rental&method=update" method="POST" class="needs-validation" novalidate>
                     <input type="hidden" name="id" value="<?php echo $data[0]->id ?>">
                     <div class="form-group">

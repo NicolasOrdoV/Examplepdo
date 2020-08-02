@@ -1,12 +1,12 @@
 <main class="container">
     <div class="row">
-        <h1 class="col-12 d-flex jutify-content-center">Nuevo Usuario</h1>
+        <h1 class="col-12 d-flex justify-content-center mt-3">Nuevo Usuario</h1>
     </div>
 
-    <section class="row mt-5">
+    <section class="row mt-3">
         <div class="card w-50 m-auto">
-            <div class="card-header container">
-                <h2 class="m-auto">Información Usuario</h2>
+            <div class="card-header container bg-primary">
+                <h2 class="m-auto">Informacion Usuario</h2>
             </div>
 
             <div class="card-body w-100">
@@ -32,12 +32,12 @@
                     <div class="form-group">
                         <label>Role</label>
                         <select name="rol_id" class="form-control" required>
-                            <option value="">Seleccione...</option>                                
+                            <option value="">Seleccione...</option>
                             <?php
                                 foreach ($roles as $role) {
                                     ?>
                                         <option value="<?php echo $role->id ?>"><?php echo $role->name ?></option>
-                                    <?php                                       
+                                    <?php
                                 }
                             ?>
                         </select>

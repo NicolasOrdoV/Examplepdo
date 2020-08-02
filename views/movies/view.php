@@ -1,13 +1,15 @@
 <main class="container">
     <div class="row">
-        <h1 class="col-12 d-flex jutify-content-center">Detalle de la pelicula</h1>
+        <h1 class="col-12 d-flex justify-content-center mt-3">Informacion Pelicula</h1>
     </div>
 
-    <section class="row mt-5">
+    <section class="row mt-3">
         <div class="card w-50 m-auto">
-            <div class="card-header container">
+
+            <div class="card-header w-100">
+                <div class="form-group">
                 <h2 class="m-auto">Información de peliculas</h2>
-            </div>
+                </div>
 
              <div class="card-body w-100">
                 <!--<form action="?controller=movie&method=update" method="post">-->
@@ -38,7 +40,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <table class="table table-hover">
+                        <table class="table table-hover text-center">
                             <thead class="thead-dark">
                                 <tr>
                                     <th>Categorias</th>
