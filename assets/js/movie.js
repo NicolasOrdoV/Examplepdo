@@ -16,7 +16,7 @@ $('#add').click(function(e){
         showCategories()
 		}else{
 			alert("La categoria ya se encuentra seleccionada")
-		}   
+		}
 	}else{
 		alert("Debe seleccionar una categoria");
 	}
@@ -50,6 +50,7 @@ $("#submit").click(function(e){
 
 	let url = "?controller=movie&method=save"
 	let params = {
+		img				 : $("#img").val(),
 		name       : $("#name").val(),
 		description: $("#description").val(),
 		user_id    : $("#user_id").val(),

@@ -57,11 +57,10 @@
                     }
                 }
                 ?>
-                <form action="?controller=movie&method=save" method="POST">
-                    
-                <input type="hidden" name="img" value="<?php echo $name_img ?>">
+
+
+                <input type="hidden" id="img" name="img" value="<?php echo $name_img ?>">
 =======
-                <form action="#" method="POST" class="needs-validation" novalidate>
 >>>>>>> bf3efc7166078f8d0703eb868bf9e05c174a6b3a
                     <div class="form-group">
                         <label> Nombre</label>
@@ -115,7 +114,7 @@
                     <div class="form-group">
                         <button type="submit" id="submit" class="btn btn-primary">Guardar</button>
                     </div>
-                </form>
+
             </div>
         </div>
     </section>
