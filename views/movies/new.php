@@ -10,7 +10,6 @@
             </div>
 
             <div class="card-body w-100">
-<<<<<<< HEAD
             <form method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <div id="txt" class="input-group mb-2">
@@ -29,14 +28,14 @@
                     $type_img = $_FILES['img']['type'];
                     $size_img = $_FILES['img']['size'];
 
-                    $carpeta_destina = $_SERVER['DOCUMENT_ROOT'] . "/Examplepdo/assets/img/";
+                    $carpeta_destina = $_SERVER['DOCUMENT_ROOT'] . "/c/xampp/htdocs/Proyectos/Examplepdo/assets/img/";
                     if ($size_img <= 1000000) {
                         if ($type_img == "image/png" || $type_img == "image/jpeg" || $type_img == "image/jpg") {
 
-                            move_uploaded_file($_FILES['img']['tmp_name'], $carpeta_destina . $name_img);
+                           // move_uploaded_file($_FILES['img']['tmp_name'], $carpeta_destina . $name_img);
 
                 ?>
-                            <img src="/Examplepdo/assets/img/<?php echo $name_img ?>" class="col-lg-4">
+                            <img src="assets/img/<?php echo $name_img ?>" class="col-lg-4">
 
                         <?php
                         } else {
@@ -60,8 +59,6 @@
 
 
                 <input type="hidden" id="img" name="img" value="<?php echo $name_img ?>">
-=======
->>>>>>> bf3efc7166078f8d0703eb868bf9e05c174a6b3a
                     <div class="form-group">
                         <label> Nombre</label>
                         <input type="text" name="name" id="name" class="form-control" placeholder="Ingrese el nombre" required>
