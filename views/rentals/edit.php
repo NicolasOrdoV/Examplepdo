@@ -27,7 +27,7 @@
                         <label>Total</label>
                         <input type="number" name="total" class="form-control" placeholder="Ingrese el valor del alquiler" value="<?php echo $data[0]->total ?>" required>
                         <div class="invalid-feedback">Por favor no dejar campos vacios.</div>
-                        <div class="valid-feedback">Campo validado correctamente.</div>
+                        <div class="valid-feedback">Campo validado correctamente</div>
                     </div>
                     <div class="form-group">
                         <label>Usuario</label>
